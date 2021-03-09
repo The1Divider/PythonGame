@@ -11,11 +11,8 @@ class Render:
         self.camera_lock_x, self.camera_lock_y = False, False
         self.x_offset, self.y_offset = None, None
 
-        self.x_start = (self.map_dimensions.x // 2 - SCREEN_WIDTH // 2) * TILE_SIZE - TILE_OFFSET
-        self.x_stop = (dx + SCREEN_WIDTH // 2) * TILE_SIZE + TILE_OFFSET
-        self.y_start = (dy - SCREEN_HEIGHT // 2) * TILE_SIZE - TILE_OFFSET
-        self.y_stop = (dy + SCREEN_HEIGHT // 2) * TILE_SIZE + TILE_OFFSET
-
+        self.x_start, self.x_stop, self.y_start, self.y_stop = None, None, None, None
+        
         self.map = world_map
         self.map_dimensions = Vector(len(self.map[0]), len(self.map))
         self.tile_values = {-1: c.WHITE, 0: c.GRAY, 1: c.BLACK, 2: c.RED, 3: c.ORANGE, 4: c.YELLOW,
